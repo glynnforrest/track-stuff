@@ -1,0 +1,14 @@
+{
+    "require": {
+        "glynnforrest/neptune": "dev-master",
+        "twig/twig": "~1.18"
+    },
+    "require-dev": {
+        "filp/whoops": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "TrackStuff\\": "src/TrackStuff"
+        }
+    }
+}
