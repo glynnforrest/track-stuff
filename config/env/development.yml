@@ -1,0 +1,10 @@
+neptune:
+    routing:
+        root_url: track-stuff.dev/
+    database:
+        main:
+            driver: pdo_mysql
+            dbname: track_stuff
+            user: root
+            pass: ''
+            logger: logger
