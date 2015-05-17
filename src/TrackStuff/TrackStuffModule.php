@@ -16,6 +16,7 @@ class TrackStuffModule extends AbstractModule
 
     public function routes(Router $router, $prefix, Neptune $neptune)
     {
+        $router->route('/', 'track-stuff:index', 'index');
     }
 
     public function register(Neptune $neptune)
