@@ -4,3 +4,6 @@ neptune:
             router.listener
 monolog:
     path: storage/logs/logs.log
+twig:
+    extensions:
+        - twig.extension.assets

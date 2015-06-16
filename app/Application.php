@@ -2,6 +2,7 @@
 
 use Neptune\Core\Neptune;
 use Neptune\Service;
+use Neptune\Assets\AssetsModule;
 use TrackStuff\TrackStuffModule;
 
 /**
@@ -14,6 +15,7 @@ class Application
     public function start(Neptune $neptune)
     {
         $neptune->addModule(new TrackStuffModule());
+        $neptune->addModule(new AssetsModule(false));
 
         $neptune->addService(new Service\RoutingService());
         $neptune->addService(new Service\TwigService());
