@@ -1,0 +1,19 @@
+{
+  "name": "track-stuff",
+  "version": "0.0.0",
+  "authors": [
+    "glynnforrest <me@glynnforrest.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2"
+  }
+}
