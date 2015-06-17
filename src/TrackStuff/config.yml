@@ -1,0 +1,6 @@
+track-stuff:
+    assets:
+        css:
+            main:
+                - track-stuff/vendor/foundation/css/normalize.css
+                - track-stuff/vendor/foundation/css/foundation.min.css
