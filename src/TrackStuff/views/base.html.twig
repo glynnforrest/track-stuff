@@ -6,6 +6,18 @@
   </head>
   {{ css() }}
   <body>
+    <div class="row">
+      <div class="columns small-12">
+        {% for class, messages in app.session.flashbag.all %}
+          {% for message in messages %}
+            <div class="alert-box {{ class }}">
+              {{ message | raw}}
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+
     {% block content %}
     {% endblock %}
 
