@@ -3,7 +3,7 @@ neptune:
         subscribers:
             router.listener
 monolog:
-    path: storage/logs/logs.log
+    path: '%ROOT%/storage/logs/logs.log'
 twig:
     extensions:
         - twig.extension.assets
