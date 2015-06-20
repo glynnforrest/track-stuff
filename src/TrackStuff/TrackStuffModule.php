@@ -5,6 +5,7 @@ namespace TrackStuff;
 use Neptune\Service\AbstractModule;
 use Neptune\Core\Neptune;
 use Neptune\Routing\Router;
+use TrackStuff\Goal\GoalUpdater;
 
 /**
  * TrackStuffModule
@@ -21,6 +22,9 @@ class TrackStuffModule extends AbstractModule
 
     public function register(Neptune $neptune)
     {
+        $neptune['track-stuff.goal_updater'] = function($neptune) {
+            return new GoalUpdater($neptune['db'], $neptune['dispatcher']);
+        };
     }
 
     public function boot(Neptune $neptune)
