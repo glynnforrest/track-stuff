@@ -1,0 +1,26 @@
+{% extends 'track-stuff:base.html.twig' %}
+
+{% block content %}
+  <div class="row">
+    <div class="columns small-12">
+      <h1>All goals</h1>
+      <table>
+        <thead>
+          <th>
+            Title
+          </th>
+        </thead>
+        <tbody>
+          {% for goal in goals %}
+            <tr>
+              <td>
+                {# switch to property syntax after upgrading active-doctrine #}
+                {{ goal.get('title') }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

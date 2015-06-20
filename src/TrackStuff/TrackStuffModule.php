@@ -14,10 +14,11 @@ use TrackStuff\Goal\GoalUpdater;
  **/
 class TrackStuffModule extends AbstractModule
 {
-
     public function routes(Router $router, $prefix, Neptune $neptune)
     {
         $router->route('/', 'track-stuff:index', 'index');
+        $router->route('/goals', 'track-stuff:goals', 'list');
+        $router->route('/goals/create', 'track-stuff:goals', 'create');
     }
 
     public function register(Neptune $neptune)
