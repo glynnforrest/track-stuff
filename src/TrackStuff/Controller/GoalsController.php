@@ -42,4 +42,16 @@ class GoalsController extends Controller
             'goals' => $goals
         ]);
     }
+
+    public function viewAction(Request $request, $id)
+    {
+        $goal = $this->neptune['track-stuff.repo.goal']
+              ->findOneBy(['id' => $id]);
+
+        $this->assets()->addCssGroup('track-stuff:main');
+
+        return $this->render('track-stuff:goals/view.html.twig', [
+            'goal' => $goal
+        ]);
+    }
 }
