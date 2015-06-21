@@ -5,7 +5,6 @@ namespace TrackStuff;
 use Neptune\Service\AbstractModule;
 use Neptune\Core\Neptune;
 use Neptune\Routing\Router;
-use TrackStuff\Goal\GoalUpdater;
 
 /**
  * TrackStuffModule
@@ -19,12 +18,17 @@ class TrackStuffModule extends AbstractModule
         $router->route('/', 'track-stuff:index', 'index');
         $router->route('/goals', 'track-stuff:goals', 'list');
         $router->route('/goals/create', 'track-stuff:goals', 'create');
+        $router->name('track-stuff:goal:view')->route('/goals/:id', 'track-stuff:goals', 'view');
     }
 
     public function register(Neptune $neptune)
     {
         $neptune['track-stuff.goal_updater'] = function($neptune) {
-            return new GoalUpdater($neptune['db'], $neptune['dispatcher']);
+            return new Goal\GoalUpdater($neptune['db'], $neptune['dispatcher']);
+        };
+
+        $neptune['track-stuff.repo.goal'] = function($neptune) {
+            return new Repository\GoalRepository($neptune['db']);
         };
     }
 
