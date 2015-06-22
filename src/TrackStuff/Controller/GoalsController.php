@@ -34,7 +34,7 @@ class GoalsController extends Controller
 
     public function listAction(Request $request)
     {
-        $goals = Goal::select($this->neptune['db'])->execute();
+        $goals = $this->neptune['track-stuff.repo.goal']->findAll();
 
         $this->assets()->addCssGroup('track-stuff:main');
 
