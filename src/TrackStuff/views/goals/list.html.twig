@@ -9,6 +9,8 @@
           <th>
             Title
           </th>
+          <th>
+          </th>
         </thead>
         <tbody>
           {% for goal in goals %}
@@ -16,6 +18,9 @@
               <td>
                 {# switch to property syntax after upgrading active-doctrine #}
                 {{ goal.get('title') }}
+              </td>
+              <td>
+                <a href="{{ route('track-stuff:goal:view', {id: goal.get('id')}) }}">View</a>
               </td>
             </tr>
           {% endfor %}
