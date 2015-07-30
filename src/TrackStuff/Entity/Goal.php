@@ -15,6 +15,9 @@ class Goal extends Entity
         'slug',
     ];
     protected static $relations = [
+        'logs' => [
+            'has_many', 'TrackStuff\Entity\GoalLog', 'goal_id', 'id'
+        ],
     ];
 
     public function setterTitle($title)
