@@ -10,6 +10,12 @@
             Title
           </th>
           <th>
+            Entries
+          </th>
+          <th>
+            Total
+          </th>
+          <th>
           </th>
         </thead>
         <tbody>
@@ -18,6 +24,12 @@
               <td>
                 {# switch to property syntax after upgrading active-doctrine #}
                 {{ goal.get('title') }}
+              </td>
+              <td>
+                {{ goal.get('logs').count() }}
+              </td>
+              <td>
+                {{ goal.get('total') }}
               </td>
               <td>
                 <a href="{{ route('track-stuff:goal:view', {id: goal.get('id')}) }}">View</a>

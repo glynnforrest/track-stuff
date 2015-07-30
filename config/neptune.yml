@@ -7,3 +7,4 @@ monolog:
 twig:
     extensions:
         - twig.extension.assets
+        - twig.extension.routing
