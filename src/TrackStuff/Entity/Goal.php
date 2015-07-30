@@ -26,4 +26,9 @@ class Goal extends Entity
 
         return $title;
     }
+
+    public function getterTotal()
+    {
+        return array_sum($this->logs->getColumn('amount'));
+    }
 }
