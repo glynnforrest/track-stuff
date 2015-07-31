@@ -4,3 +4,7 @@ track-stuff:
             main:
                 - track-stuff/vendor/foundation/css/normalize.css
                 - track-stuff/vendor/foundation/css/foundation.min.css
+        js:
+            main:
+                - track-stuff/vendor/jquery/dist/jquery.min.js
+                - track-stuff/js/tracker.js
