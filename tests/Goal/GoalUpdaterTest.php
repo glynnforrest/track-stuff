@@ -33,4 +33,30 @@ class GoalUpdaterTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('TrackStuff\Entity\Goal', $goal);
         $this->assertSame('Take over the world', $goal->title);
     }
+
+    public function textShorthandProvider()
+    {
+        return [
+            ['20 pressups', [
+                ['pressups', 20]
+            ]],
+            ['20 pressups, 40 pressups', [
+                ['pressups', 20],
+                ['pressups', 40]
+            ]],
+            ['20 pressups, 40 pressups, 10 situps', [
+                ['pressups', 20],
+                ['pressups', 40],
+                ['situps', 10]
+            ]],
+        ];
+    }
+
+    /**
+     * @dataProvider textShorthandProvider
+     */
+    public function testParseTextShorthand($text, $expected)
+    {
+        $this->assertSame($expected, $this->updater->parseTextShorthand($text));
+    }
 }
