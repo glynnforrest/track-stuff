@@ -19,4 +19,7 @@ class GoalLog extends Entity
             'belongs_to', 'TrackStuff\Entity\Goal', 'id', 'goal_id'
         ],
     ];
+    protected static $types = [
+        'date' => 'date'
+    ];
 }

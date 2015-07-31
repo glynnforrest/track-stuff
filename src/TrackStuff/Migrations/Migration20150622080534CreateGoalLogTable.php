@@ -17,7 +17,7 @@ class Migration20150622080534CreateGoalLogTable extends AbstractMigration
         $id->setAutoIncrement(true);
         $table->setPrimaryKey(['id']);
 
-        $table->addColumn('date', 'datetime');
+        $table->addColumn('date', 'date');
         $table->addColumn('goal_id', 'integer', ['unsigned' => true]);
         $table->addColumn('amount', 'integer', ['unsigned' => true]);
 
