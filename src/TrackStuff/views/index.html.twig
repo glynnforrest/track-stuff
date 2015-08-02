@@ -2,7 +2,7 @@
 {% block content %}
   <div class="row">
     <div class="columns small-12">
-      <input class="tracker-input" type="text" placeholder="40 situps" />
+      <input class="tracker-input" type="text" placeholder="40 situps" data-action="{{ route('track-stuff:log:add_shorthand') }}"/>
       <div class="tracker-entries">
       </div>
     </div>
