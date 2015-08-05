@@ -21,6 +21,8 @@
     {% block content %}
     {% endblock %}
 
-    {{ js() }}
+    {% block js %}
+      {{ js() }}
+    {% endblock %}
   </body>
 </html>
