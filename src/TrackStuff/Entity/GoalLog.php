@@ -22,4 +22,9 @@ class GoalLog extends Entity
     protected static $types = [
         'date' => 'date'
     ];
+
+    public function __isset($key)
+    {
+        return true;
+    }
 }

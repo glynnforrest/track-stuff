@@ -20,6 +20,11 @@ class Goal extends Entity
         ],
     ];
 
+    public function __isset($key)
+    {
+        return true;
+    }
+
     public function setterTitle($title)
     {
         $this->setRaw('slug', StaticStringy::slugify($title));
