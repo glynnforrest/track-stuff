@@ -20,6 +20,7 @@ class TrackStuffModule extends AbstractModule
         $router->route('/goals/create', 'track-stuff:goals', 'create');
         $router->name('track-stuff:goal:view')->route('/goals/:id', 'track-stuff:goals', 'view');
         $router->name('track-stuff:log:add_shorthand')->route('/goal_log/shorthand', 'track-stuff:goals', 'addShorthandLogs');
+        $router->name('track-stuff:graph-data')->route('/graph_data/:type/:goal', 'track-stuff:graph', 'getData');
     }
 
     public function register(Neptune $neptune)
