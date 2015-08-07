@@ -4,7 +4,10 @@ track-stuff:
             main:
                 - track-stuff/vendor/foundation/css/normalize.css
                 - track-stuff/vendor/foundation/css/foundation.min.css
+                - track-stuff/vendor/morris.js/morris.css
         js:
             main:
                 - track-stuff/vendor/jquery/dist/jquery.min.js
+                - track-stuff/vendor/morris.js/morris.min.js
+                - track-stuff/vendor/raphael/raphael-min.js
                 - track-stuff/js/tracker.js
