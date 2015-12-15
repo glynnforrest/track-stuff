@@ -1,46 +1,13 @@
 {% extends 'track-stuff:base.html.twig' %}
 {% block content %}
   <div class="row">
-    <div class="columns small-4">
+    <div class="columns small-8 offset-2">
+      <h1>What did you do today?</h1>
+
       <input class="tracker-input" type="text" placeholder="40 situps" data-action="{{ route('track-stuff:log:add_shorthand') }}"/>
       <div class="tracker-entries">
       </div>
     </div>
-    <div class="columns small-8">
-      {% for goal in goals %}
-        <h2>{{goal.title}}</h2>
-        <div class="panel">
-          <div class="graph" id="graph-{{goal.slug}}"></div>
-        </div>
-      {% endfor %}
-    </div>
   </div>
 
-{% endblock %}
-
-
-{% block js %}
-  {{ parent() }}
-
-  <script type="text/javascript">
-   {% for goal in goals %}
-   var graph = new Morris.Line({
-       element: 'graph-{{goal.slug}}',
-       xkey: 'date',
-       ykeys: ['total'],
-       labels: ['Total']
-   });
-
-   $.ajax({
-       url: '{{ route('track-stuff:graph-data', {goal: goal.id, type: 'line'}) }}',
-       type: 'get',
-       success: function (data) {
-           graph.setData(data);
-       },
-       error: function (response) {
-       }
-   });
-
-   {% endfor %}
-  </script>
 {% endblock %}

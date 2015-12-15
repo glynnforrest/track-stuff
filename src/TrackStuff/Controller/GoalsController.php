@@ -70,6 +70,9 @@ class GoalsController extends Controller
 
     public function viewAction(Request $request, $id)
     {
+        $this->assets()->addCssGroup('track-stuff:main');
+        $this->assets()->addJsGroup('track-stuff:main');
+
         $goal = $this->neptune['track-stuff.repo.goal']
               ->findOneBy(['id' => $id]);
 

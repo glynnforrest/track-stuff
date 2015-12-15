@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="row">
-    <div class="columns small-12">
+    <div class="columns small-4">
       <h1>{{ goal.get('title') }}</h1>
       <table>
         <thead>
@@ -39,5 +39,36 @@
         </tbody>
       </table>
     </div>
+    <div class="columns small-8">
+      <h2>{{goal.title}}</h2>
+      <div class="panel">
+        <div class="graph" id="graph-{{goal.slug}}"></div>
+      </div>
+    </div>
   </div>
+
+{% endblock %}
+
+{% block js %}
+  {{ parent() }}
+
+  <script type="text/javascript">
+   var graph = new Morris.Line({
+       element: 'graph-{{goal.slug}}',
+       xkey: 'date',
+       ykeys: ['total'],
+       labels: ['Total']
+   });
+
+   $.ajax({
+       url: '{{ route('track-stuff:graph-data', {goal: goal.id, type: 'line'}) }}',
+       type: 'get',
+       success: function (data) {
+           graph.setData(data);
+       },
+       error: function (response) {
+       }
+   });
+
+  </script>
 {% endblock %}
