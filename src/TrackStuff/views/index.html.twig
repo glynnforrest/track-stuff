@@ -1,10 +1,24 @@
 {% extends 'track-stuff:base.html.twig' %}
 {% block content %}
   <div class="row">
-    <div class="columns small-8 offset-2">
+    <div class="columns small-8 small-centered panel">
       <h1>What did you do today?</h1>
 
-      <input class="tracker-input" type="text" placeholder="40 situps" data-action="{{ route('track-stuff:log:add_shorthand') }}"/>
+      <div class="row">
+        <div class="columns small-4">
+          <input class="tracker-date" type="text" class="datepicker">
+        </div>
+        <div class="columns small-8">
+          <input class="tracker-input" type="text" placeholder="40 situps" data-action="{{ route('track-stuff:log:add_shorthand') }}"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-12">
+          <p class="tracker-messages">
+          </p>
+        </div>
+      </div>
+
       <div class="tracker-entries">
       </div>
     </div>
