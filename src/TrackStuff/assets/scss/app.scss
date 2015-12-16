@@ -1,3 +1,12 @@
+body {
+  //to be replaced by random cool nature images that periodically refresh
+  background: url("https://i.imgur.com/jxdxBLj.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .panel {
   margin-top: 20px;
 }
