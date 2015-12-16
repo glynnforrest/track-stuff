@@ -1,2 +1,4 @@
 vendor/
 /app/env.php
+node_modules/
+/src/TrackStuff/assets/css/

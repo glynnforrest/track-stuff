@@ -13,7 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "foundation": "~5.5.2",
+    "foundation": "~5.5.3",
     "morris.js": "~0.5.1"
   }
 }
