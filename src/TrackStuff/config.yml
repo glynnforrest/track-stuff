@@ -3,7 +3,6 @@ track-stuff:
         css:
             main:
                 - track-stuff/vendor/foundation/css/normalize.css
-                - track-stuff/vendor/foundation/css/foundation.min.css
                 - track-stuff/vendor/morris.js/morris.css
                 - track-stuff/css/app.css
         js:
