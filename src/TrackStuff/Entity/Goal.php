@@ -13,6 +13,7 @@ class Goal extends Entity
         'id',
         'title',
         'slug',
+        'target',
     ];
     protected static $relations = [
         'logs' => [

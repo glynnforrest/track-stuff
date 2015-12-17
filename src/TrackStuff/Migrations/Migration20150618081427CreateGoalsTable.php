@@ -18,6 +18,7 @@ class Migration20150618081427CreateGoalsTable extends AbstractMigration
         $table->setPrimaryKey(['id']);
         $table->addColumn('title', 'string');
         $table->addColumn('slug', 'string');
+        $table->addColumn('target', 'integer');
 
         return $schema;
     }
