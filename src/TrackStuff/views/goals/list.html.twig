@@ -1,43 +1,21 @@
 {% extends 'track-stuff:base.html.twig' %}
 
 {% block content %}
-  <div class="row">
+  <div class="row panel">
     <div class="columns small-12">
-      <h1>All goals</h1>
-      <table>
-        <thead>
-          <th>
-            Title
-          </th>
-          <th>
-            Entries
-          </th>
-          <th>
-            Total
-          </th>
-          <th>
-          </th>
-        </thead>
-        <tbody>
-          {% for goal in goals %}
-            <tr>
-              <td>
-                {# switch to property syntax after upgrading active-doctrine #}
-                {{ goal.get('title') }}
-              </td>
-              <td>
-                {{ goal.get('logs').count() }}
-              </td>
-              <td>
-                {{ goal.get('total') }}
-              </td>
-              <td>
-                <a href="{{ route('track-stuff:goal:view', {id: goal.get('id')}) }}">View</a>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+      {% for goal in goals %}
+        <a href="{{ route('track-stuff:goal:view', {id: goal.get('id')}) }}">
+          <h2>
+            {# switch to property syntax after upgrading active-doctrine #}
+            {{ goal.get('title') }}
+          </h2>
+        </a>
+        <div class="progress round">
+          <span class="meter" style="width: {{goal.get('percentage')}}%">
+          </span>
+        </div>
+        {{ goal.get('total') }} {{ goal.get('slug') }}
+      {% endfor %}
     </div>
   </div>
 {% endblock %}
