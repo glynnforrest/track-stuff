@@ -7,6 +7,7 @@ $(function () {
       if (text.trim() === '') {
         return;
       }
+      var that = $(this);
       $.ajax({
         url: $(this).data('action'),
         type: 'post',
@@ -17,11 +18,11 @@ $(function () {
           for (var i=0; i < data.logs.length; i++) {
             $('.tracker-entries').append('<p>'+data.logs[i]+'</p>');
           }
-          $(this).val('');
+          that.val('');
           $('.tracker-messages').html(data.message);
         },
         error: function (data) {
-          $(this).addClass('error');
+          that.addClass('error');
           $('.tracker-messages').html(data.responseJSON.message);
         }
       });
