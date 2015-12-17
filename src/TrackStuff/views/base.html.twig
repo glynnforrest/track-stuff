@@ -18,8 +18,10 @@
       </div>
     </div>
 
-    {% block content %}
-    {% endblock %}
+    <div class="wrapper">
+      {% block content %}
+      {% endblock %}
+    </div>
 
     {% block js %}
       {{ js() }}
