@@ -20,11 +20,7 @@ class GoalLog extends Entity
         ],
     ];
     protected static $types = [
-        'date' => 'date'
+        'date' => 'date',
+        'amount' => 'integer',
     ];
-
-    public function __isset($key)
-    {
-        return true;
-    }
 }

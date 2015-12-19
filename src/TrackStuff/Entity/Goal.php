@@ -15,16 +15,14 @@ class Goal extends Entity
         'slug',
         'target',
     ];
+    protected static $types = [
+        'target' => 'integer',
+    ];
     protected static $relations = [
         'logs' => [
             'has_many', 'TrackStuff\Entity\GoalLog', 'goal_id', 'id'
         ],
     ];
-
-    public function __isset($key)
-    {
-        return true;
-    }
 
     public function setterTitle($title)
     {
