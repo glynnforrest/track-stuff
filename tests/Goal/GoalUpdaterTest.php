@@ -28,10 +28,12 @@ class GoalUpdaterTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromForm()
     {
         $form = new GoalForm('');
-        $form->setValue('title', 'Take over the world');
+        $form->setValue('title', 'Lots of sit-ups');
+        $form->setValue('target', 10000);
         $goal = $this->updater->createFromForm($form);
         $this->assertInstanceOf('TrackStuff\Entity\Goal', $goal);
-        $this->assertSame('Take over the world', $goal->title);
+        $this->assertSame('Lots of sit-ups', $goal->title);
+        $this->assertSame(10000, $goal->target);
     }
 
     public function textShorthandProvider()

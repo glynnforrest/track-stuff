@@ -16,6 +16,7 @@ class GoalForm extends Form
     {
         parent::init();
         $this->text('title');
+        $this->number('target');
         $this->submit('Save');
         $this->setDefaultRenderer(new FoundationRenderer());
     }

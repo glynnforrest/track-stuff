@@ -24,7 +24,7 @@ class GoalsController extends Controller
                 sprintf('Created %s.', $goal->title)
             );
 
-            return $this->redirect('/goals');
+            return $this->redirectTo('track-stuff:goals:list');
         }
 
         $this->assets()->addCssGroup('track-stuff:main');

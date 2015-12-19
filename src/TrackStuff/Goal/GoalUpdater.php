@@ -27,7 +27,7 @@ class GoalUpdater
     public function createFromForm(GoalForm $form)
     {
         $goal = new Goal($this->connection);
-        $goal->title = $form->getValue('title');
+        $goal->setValuesSafe($form->getValues());
         $goal->save();
 
         //send goal created event
