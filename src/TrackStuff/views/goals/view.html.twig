@@ -2,48 +2,60 @@
 
 {% block content %}
   <div class="row">
-    <div class="columns small-4">
-      <h1>{{ goal.title }}</h1>
-      <table>
-        <thead>
-          <th>
-            Date
-          </th>
-          <th>
-            Amount
-          </th>
-          <th>
-          </th>
-        </thead>
-        <tbody>
-          {% for log in goal.logs %}
+    <h2>{{goal.title}}</h2>
+    <ul class="tabs" data-tab role="tablist">
+      <li class="tab-title active" role="presentation"><a href="#panel-overview" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">Overview</a></li>
+      <li class="tab-title" role="presentation"><a href="#panel-stats" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2">Stats</a></li>
+      <li class="tab-title" role="presentation"><a href="#panel-logs" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-3">Logs</a></li>
+    </ul>
+
+    <div class="tabs-content">
+
+      <section role="tabpanel" aria-hidden="true" class="content active" id="panel-overview">
+        <div class="panel">
+          <div class="graph" id="graph-{{goal.slug}}"></div>
+        </div>
+      </section>
+
+      <section role="tabpanel" aria-hidden="true" class="content" id="panel-stats">
+      </section>
+
+      <section role="tabpanel" aria-hidden="true" class="content" id="panel-logs">
+        <table>
+          <thead>
+            <th>
+              Date
+            </th>
+            <th>
+              Amount
+            </th>
+            <th>
+            </th>
+          </thead>
+          <tbody>
+            {% for log in goal.logs %}
+              <tr>
+                <td>
+                  {{ log.date|date }}
+                </td>
+                <td>
+                  {{ log.amount }}
+                </td>
+                <td>
+                  <a href="javascript:;">Edit</a>
+                </td>
+              </tr>
+            {% endfor %}
             <tr>
               <td>
-                {{ log.date|date }}
               </td>
               <td>
-                {{ log.amount }}
-              </td>
-              <td>
-                <a href="javascript:;">Edit</a>
+                {{ goal.total }}
               </td>
             </tr>
-          {% endfor %}
-          <tr>
-            <td>
-            </td>
-            <td>
-              {{ goal.total }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="columns small-8">
-      <h2>{{goal.title}}</h2>
-      <div class="panel">
-        <div class="graph" id="graph-{{goal.slug}}"></div>
-      </div>
+          </tbody>
+        </table>
+      </section>
     </div>
   </div>
 
@@ -53,22 +65,24 @@
   {{ parent() }}
 
   <script type="text/javascript">
-   var graph = new Morris.Line({
-       element: 'graph-{{goal.slug}}',
-       xkey: 'date',
-       ykeys: ['total'],
-       labels: ['Total']
-   });
+   $(function () {
+       debugger;
+       var graph = new Morris.Line({
+           element: 'graph-{{goal.slug}}',
+           xkey: 'date',
+           ykeys: ['total'],
+           labels: ['Total']
+       });
 
-   $.ajax({
-       url: '{{ route('track-stuff:graph-data', {goal: goal.id, type: 'line'}) }}',
-       type: 'get',
-       success: function (data) {
-           graph.setData(data);
-       },
-       error: function (response) {
-       }
+       $.ajax({
+           url: '{{ route('track-stuff:graph-data', {goal: goal.id, type: 'line'}) }}',
+           type: 'get',
+           success: function (data) {
+               graph.setData(data);
+           },
+           error: function (response) {
+           }
+       });
    });
-
   </script>
 {% endblock %}
