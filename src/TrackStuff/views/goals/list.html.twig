@@ -4,7 +4,7 @@
   <div class="row panel">
     <div class="columns small-12">
       {% for goal in goals %}
-        <a href="{{ route('track-stuff:goal:view', {id: goal.id}) }}">
+        <a href="{{ route('track-stuff:goals:view', {slug: goal.slug}) }}">
           <h2>
             {{ goal.title }}
           </h2>

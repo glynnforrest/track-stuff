@@ -6,6 +6,7 @@ use Neptune\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TrackStuff\Entity\Goal;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class GoalsController extends Controller
 {
@@ -68,13 +69,17 @@ class GoalsController extends Controller
         ]);
     }
 
-    public function viewAction(Request $request, $id)
+    public function viewAction(Request $request, $slug)
     {
         $this->assets()->addCssGroup('track-stuff:main');
         $this->assets()->addJsGroup('track-stuff:main');
 
         $goal = $this->neptune['track-stuff.repo.goal']
-              ->findOneBy(['id' => $id]);
+              ->findOneBy(['slug' => $slug]);
+
+        if (!$goal) {
+            throw new NotFoundHttpException('Goal not found.');
+        }
 
         $this->assets()->addCssGroup('track-stuff:main');
 
