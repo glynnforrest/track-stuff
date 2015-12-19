@@ -16,7 +16,7 @@ class TrackStuffModule extends AbstractModule
     public function routes(Router $router, $prefix, Neptune $neptune)
     {
         $router->route('/', 'track-stuff:index', 'index');
-        $router->route('/goals', 'track-stuff:goals', 'list');
+        $router->name('track-stuff:goals:list')->route('/goals', 'track-stuff:goals', 'list');
         $router->route('/goals/create', 'track-stuff:goals', 'create');
         $router->name('track-stuff:goal:view')->route('/goals/:id', 'track-stuff:goals', 'view');
         $router->name('track-stuff:log:add_shorthand')->route('/goal_log/shorthand', 'track-stuff:goals', 'addShorthandLogs');
