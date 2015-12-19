@@ -44,4 +44,21 @@ class Goal extends Entity
 
         return $this->total / (int) $this->target;
     }
+
+    public function getterRemaining()
+    {
+        if ($this->total >= $this->target) {
+            return 0;
+        }
+
+        return $this->target - $this->total;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTargetReached()
+    {
+        return $this->remaining === 0;
+    }
 }
