@@ -1,6 +1,7 @@
 {
     "require": {
         "glynnforrest/neptune": "dev-master",
+        "glynnforrest/active-doctrine": "dev-master",
         "twig/twig": "~1.18"
     },
     "require-dev": {
