@@ -10,4 +10,6 @@ track-stuff:
                 - track-stuff/vendor/jquery/dist/jquery.min.js
                 - track-stuff/vendor/morris.js/morris.min.js
                 - track-stuff/vendor/raphael/raphael-min.js
+                - track-stuff/vendor/foundation/js/foundation.min.js
+                - track-stuff/js/main.js
                 - track-stuff/js/tracker.js

@@ -1,6 +1,4 @@
 $(function () {
-  var app = window.app = {};
-
   $('.tracker-input').keydown(function(e) {
     if (e.keyCode === 13) {
       var text = $(this).val();
