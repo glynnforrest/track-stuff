@@ -4,17 +4,16 @@
   <div class="row panel">
     <div class="columns small-12">
       {% for goal in goals %}
-        <a href="{{ route('track-stuff:goal:view', {id: goal.get('id')}) }}">
+        <a href="{{ route('track-stuff:goal:view', {id: goal.id}) }}">
           <h2>
-            {# switch to property syntax after upgrading active-doctrine #}
-            {{ goal.get('title') }}
+            {{ goal.title }}
           </h2>
         </a>
         <div class="progress round">
-          <span class="meter" style="width: {{goal.get('percentage')}}%">
+          <span class="meter" style="width: {{goal.percentage}}%">
           </span>
         </div>
-        {{ goal.get('total') }} {{ goal.get('slug') }}
+        {{ goal.total }} {{ goal.slug }}
       {% endfor %}
     </div>
   </div>

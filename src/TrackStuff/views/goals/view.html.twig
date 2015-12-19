@@ -3,7 +3,7 @@
 {% block content %}
   <div class="row">
     <div class="columns small-4">
-      <h1>{{ goal.get('title') }}</h1>
+      <h1>{{ goal.title }}</h1>
       <table>
         <thead>
           <th>
@@ -16,13 +16,13 @@
           </th>
         </thead>
         <tbody>
-          {% for log in goal.get('logs') %}
+          {% for log in goal.logs %}
             <tr>
               <td>
-                {{ log.get('date')|date }}
+                {{ log.date|date }}
               </td>
               <td>
-                {{ log.get('amount') }}
+                {{ log.amount }}
               </td>
               <td>
                 <a href="javascript:;">Edit</a>
@@ -33,7 +33,7 @@
             <td>
             </td>
             <td>
-              {{ goal.get('total') }}
+              {{ goal.total }}
             </td>
           </tr>
         </tbody>
