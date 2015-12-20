@@ -9,11 +9,26 @@
             {{ goal.title }}
           </h2>
         </a>
-        <div class="progress round">
-          <span class="meter" style="width: {{goal.percentage}}%">
-          </span>
-        </div>
-        {{ goal.total }} {{ goal.slug }}
+        {% if goal.isStarted() %}
+          <div class="progress round">
+            <span class="meter" style="width: {{goal.percentage}}%">
+            </span>
+          </div>
+
+          {% if goal.isTargetReached() %}
+            <span class="tiny button success">{{ goal.total }} / {{goal.target}}</span>
+          {% else %}
+            <span class="tiny button warning">{{ goal.total }} /  {{goal.target}}</span>
+            <span class="tiny button warning right">{{goal.remaining}} to go</span>
+          {% endif %}
+        {% else %}
+          <div class="panel callout">
+            <p>
+              Not started yet
+            </p>
+          </div>
+        {% endif %}
+
       {% endfor %}
     </div>
   </div>

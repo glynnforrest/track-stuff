@@ -61,4 +61,12 @@ class Goal extends Entity
     {
         return $this->remaining === 0;
     }
+
+    /**
+     * @return bool
+     */
+    public function isStarted()
+    {
+        return $this->total > 0;
+    }
 }
