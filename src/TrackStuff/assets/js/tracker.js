@@ -1,4 +1,8 @@
 $(function () {
+  $('.tracker-date').fdatepicker({
+    format: 'yyyy/m/d'
+  });
+
   $('.tracker-input').keydown(function(e) {
     if (e.keyCode === 13) {
       var text = $(this).val();
@@ -10,7 +14,8 @@ $(function () {
         url: $(this).data('action'),
         type: 'post',
         data: {
-          text: text
+          text: text,
+          date: $('.tracker-date').val()
         },
         success: function (data) {
           for (var i=0; i < data.logs.length; i++) {

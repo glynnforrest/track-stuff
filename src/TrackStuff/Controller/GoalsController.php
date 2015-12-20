@@ -36,8 +36,8 @@ class GoalsController extends Controller
 
     public function addShorthandLogsAction(Request $request)
     {
-        $date = new \DateTime();
         $text = $request->request->get('text');
+        $date = \DateTime::createFromFormat('Y/m/d', $request->request->get('date'));
 
         try {
             $updater = $this->get('track-stuff.goal_updater');
