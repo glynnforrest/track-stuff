@@ -36,13 +36,16 @@ class Goal extends Entity
         return array_sum($this->logs->getColumn('amount'));
     }
 
+    /**
+     * @return int
+     */
     public function getterPercentage()
     {
-        if ((int) $this->target === 0) {
+        if ((int) $this->target === 0 || $this->total > $this->target) {
             return 100;
         }
 
-        return $this->total / (int) $this->target;
+        return (int) round($this->total / (int) $this->target * 100, 0);
     }
 
     public function getterRemaining()
