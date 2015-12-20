@@ -23,6 +23,7 @@ class Goals implements FixtureInterface
             $target = floor(rand(10000, 100000) / 1000) * 1000;
             $goal->setValues([
                 'title' => $target.' '.$thing,
+                'slug' => $thing,
                 'target' => $target,
             ]);
             $goal->save();

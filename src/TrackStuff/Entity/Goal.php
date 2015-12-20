@@ -24,13 +24,6 @@ class Goal extends Entity
         ],
     ];
 
-    public function setterTitle($title)
-    {
-        $this->setRaw('slug', StaticStringy::slugify($title));
-
-        return $title;
-    }
-
     public function getterTotal()
     {
         return array_sum($this->logs->getColumn('amount'));
