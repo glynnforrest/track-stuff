@@ -4,9 +4,12 @@ namespace TrackStuff\Entity;
 
 use ActiveDoctrine\Entity\Entity;
 use Stringy\StaticStringy;
+use ActiveDoctrine\Entity\Traits\TimestampTrait;
 
 class Goal extends Entity
 {
+    use TimestampTrait;
+
     protected static $table = 'goals';
     protected static $primary_key = 'id';
     protected static $fields = [
@@ -14,9 +17,13 @@ class Goal extends Entity
         'title',
         'slug',
         'target',
+        'created_at',
+        'updated_at',
     ];
     protected static $types = [
         'target' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
     protected static $relations = [
         'logs' => [
