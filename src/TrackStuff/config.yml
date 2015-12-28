@@ -5,6 +5,7 @@ track-stuff:
                 - track-stuff/vendor/foundation/css/normalize.css
                 - track-stuff/vendor/morris.js/morris.css
                 - track-stuff/vendor/foundation-datepicker/css/foundation-datepicker.min.css
+                - track-stuff/vendor/font-awesome/css/font-awesome.min.css
                 - track-stuff/css/app.css
         js:
             main:
