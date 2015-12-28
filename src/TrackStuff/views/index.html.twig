@@ -9,17 +9,23 @@
           <input class="tracker-date" type="text" value="{{date()|date('Y/m/d')}}">
         </div>
         <div class="columns small-8">
-          <input class="tracker-input" type="text" placeholder="40 situps" data-action="{{ route('track-stuff:log:add_shorthand') }}"/>
+          <div class="row collapse">
+            <div class="columns small-11">
+              <input class="tracker-input" type="text" data-action="{{ route('track-stuff:log:add_shorthand') }}"/>
+            </div>
+            <div class="columns small-1" style="display:none;">
+              <span class="postfix">
+                <i class="fa"></i>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="columns small-12">
-          <p class="tracker-messages">
+          <p class="tracker-error error" style="display:none;">
           </p>
         </div>
-      </div>
-
-      <div class="tracker-entries">
       </div>
 
       <a class="button" href="{{route('track-stuff:goals:list')}}">View progress</a>

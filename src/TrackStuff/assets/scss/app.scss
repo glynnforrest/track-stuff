@@ -13,3 +13,26 @@ body {
 .wrapper {
   margin-top: 20px;
 }
+
+.postfix {
+  .fa {
+    font-size: 18px;
+    display:block;
+  }
+}
+
+.postfix.success {
+  background-color:scale-color($success-color, $lightness: 40%);
+  color: $success-color;
+  .fa {
+    margin-top:7px;
+  }
+}
+
+.postfix.error {
+  background-color:scale-color($alert-color, $lightness: 40%);
+  color: $alert-color;
+  .fa {
+    margin-top:3px;
+  }
+}

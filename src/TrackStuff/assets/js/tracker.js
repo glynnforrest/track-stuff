@@ -18,6 +18,10 @@ $(function () {
   }
 
   $('.tracker-input').keydown(function(e) {
+    var iconBox = $('.postfix');
+    iconBox.parent().hide();
+    $('.tracker-error').hide();
+
     //keyup
     if (e.keyCode === 38) {
       previousDay();
@@ -29,6 +33,9 @@ $(function () {
     }
 
     if (e.keyCode === 13) {
+      $('.tracker-input').attr('disabled', true);
+      iconBox.children('.fa').hide();
+
       var text = $(this).val();
       if (text.trim() === '') {
         return;
@@ -42,15 +49,29 @@ $(function () {
           date: $('.tracker-date').val()
         },
         success: function (data) {
-          for (var i=0; i < data.logs.length; i++) {
-            $('.tracker-entries').append('<p>'+data.logs[i]+'</p>');
-          }
+          iconBox
+            .addClass('success')
+            .removeClass('error')
+            .children('.fa')
+            .removeClass('fa-times')
+            .addClass('fa-check')
+            .show();
           that.val('');
-          $('.tracker-messages').html(data.message);
         },
         error: function (data) {
-          that.addClass('error');
-          $('.tracker-messages').html(data.responseJSON.message);
+          iconBox
+            .addClass('error')
+            .removeClass('success')
+            .children('.fa')
+            .removeClass('fa-check')
+            .addClass('fa-times')
+            .show();
+          $('.tracker-error').html(data.responseJSON.message).show();
+        },
+        complete: function() {
+          $('.tracker-input').attr('disabled', false);
+          iconBox.parent().show();
+          that.focus();
         }
       });
 
