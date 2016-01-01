@@ -8,3 +8,4 @@ twig:
     extensions:
         - twig.extension.assets
         - twig.extension.routing
+        - track-stuff.twig.background

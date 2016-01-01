@@ -32,6 +32,10 @@ class TrackStuffModule extends AbstractModule
         $neptune['track-stuff.repo.goal'] = function($neptune) {
             return new Repository\GoalRepository($neptune['db']);
         };
+
+        $neptune['track-stuff.twig.background'] = function($neptune) {
+            return new Twig\Extension\BackgroundExtension(new Background\EarthpornBackgroundProvider());
+        };
     }
 
     public function boot(Neptune $neptune)
