@@ -72,4 +72,16 @@ class Goal extends Entity
     {
         return $this->total > 0;
     }
+
+    /**
+     * @return float
+     */
+    public function getterMean()
+    {
+        if ($count = count($this->logs) === 0) {
+            return 0;
+        }
+
+        return round($this->total / count($this->logs), 1);
+    }
 }
