@@ -81,10 +81,11 @@ class GoalsController extends Controller
             throw new NotFoundHttpException('Goal not found.');
         }
 
-        $this->assets()->addCssGroup('track-stuff:main');
+        $mode = $this->get('track-stuff.repo.goal')->getMode($goal);
 
         return $this->render('track-stuff:goals/view.html.twig', [
-            'goal' => $goal
+            'goal' => $goal,
+            'mode' => $mode,
         ]);
     }
 }
