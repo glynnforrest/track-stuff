@@ -34,7 +34,18 @@ class TrackStuffModule extends AbstractModule
         };
 
         $neptune['track-stuff.twig.background'] = function($neptune) {
-            return new Twig\Extension\BackgroundExtension(new Background\EarthpornBackgroundProvider());
+            $service = $neptune['config']
+                     ->get('track-stuff.background_provider', 'track-stuff.background.array');
+
+            return new Twig\Extension\BackgroundExtension($neptune[$service]);
+        };
+
+        $neptune['track-stuff.background.earth_porn'] = function($neptune) {
+            return new Background\EarthpornBackgroundProvider();
+        };
+
+        $neptune['track-stuff.background.array'] = function($neptune) {
+            return new Background\ArrayBackgroundProvider($neptune['config']->getRequired('track-stuff.backgrounds'));
         };
     }
 
