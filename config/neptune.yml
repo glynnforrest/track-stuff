@@ -9,3 +9,8 @@ twig:
         - twig.extension.assets
         - twig.extension.routing
         - track-stuff.twig.background
+
+track-stuff:
+    backgrounds:
+        - 'https://c1.staticflickr.com/1/632/21136101110_1dde1c1a7e_o.jpg'
+    background_provider: track-stuff.background.earth_porn
